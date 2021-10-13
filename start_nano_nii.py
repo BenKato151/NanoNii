@@ -27,6 +27,8 @@ class CommandHandler:
         self.parser.add_argument("--nyaaa", help="Make NanoNii Nyaaa for you uwu!", action="store_true")
         self.parser.add_argument("--process-emotion", help="Make NanoNii feel something!")
 
+    # region Default task - command Loop
+
     def default_task(self):
         print(f"Executing default of {self.nanoNii.name}\n"
               f"Following commands can be used:")
@@ -58,6 +60,7 @@ class CommandHandler:
             except KeyboardInterrupt:
                 print("\nExit")
                 running = False
+    # endregion
 
     def create_tasks(self):
         if self.args.fix_audio_issues:
