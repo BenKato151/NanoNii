@@ -10,7 +10,8 @@ class NanoNii:
     current_emotion = None
     lore = "<WIP>"
     socials = {'Twitch': 'https://www.twitch.tv/nanoniittv', 'Youtube': 'https://www.youtube.com/c/NanoNiitv',
-               'Twitter': 'https://twitter.com/NanoNii_', 'Patreon': 'https://www.patreon.com/Nii_Nii'}
+               'Twitter': 'https://twitter.com/NanoNii_', 'Patreon': 'https://www.patreon.com/Nii_Nii',
+               'Discord': 'https://discord.gg/wSzETEhENW'}
 
     def __init__(self):
         print("Nano Nii is now running")
