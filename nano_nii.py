@@ -64,4 +64,5 @@ class NanoNii:
         self.set_height(False)
 
 
-nanoNii = NanoNii()
+if __name__ == '__main__':
+    nanoNii = NanoNii()
