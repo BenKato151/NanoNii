@@ -40,7 +40,6 @@ class CommandHandler:
         if self.args.set_height:
             self.nanoNii.set_height(self.args.set_height)
 
-        # Want a throwback if no arguments are giving to execute the default task... I am just stupid lol
         if len(sys.argv) == 1:
             self.default_task()
 
