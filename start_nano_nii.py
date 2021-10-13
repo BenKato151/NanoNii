@@ -1,4 +1,5 @@
 #!/usr/bin/python
+import sys
 
 from nano_nii import NanoNii
 import argparse
@@ -40,12 +41,7 @@ class CommandHandler:
             self.nanoNii.set_height(self.args.set_height)
 
         # Want a throwback if no arguments are giving to execute the default task... I am just stupid lol
-        args_list = vars(self.args).items()
-        no_args_list_count = 0
-        for arg in args_list:
-            if arg[1] is None or 'False':
-                no_args_list_count += 1
-        if len(args_list) == no_args_list_count:
+        if len(sys.argv) == 1:
             self.default_task()
 
 
