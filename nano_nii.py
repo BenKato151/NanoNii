@@ -4,6 +4,7 @@ from time import sleep
 
 
 class NanoNii:
+    name = "Nano Nii"
     age = "21+"
     species = "Nyandroid"
     visible_size = 137.16
@@ -24,8 +25,10 @@ class NanoNii:
               f"I am so {self.process_emotion('blushing')}")
 
     def process_emotion(self, emotion):
+        # Make something with these emotions
         emotion_set = ['happiness', 'anger', 'sadness', 'fear', 'disgust', 'surprise', 'cheerful',
-                       'blushing', 'crying', 'amusement', 'excitement', 'love', 'lewd']
+                       'blushing', 'crying', 'amusement', 'excitement', 'love', 'lewd', 'laughing',
+                       'seiso', 'proud']
         valid_emotion = None
         for _emotion in emotion_set:
             if _emotion == emotion:
@@ -35,6 +38,9 @@ class NanoNii:
         if valid_emotion is None:
             raise NotImplementedError("couldn't process given emotion")
         return valid_emotion
+
+    def get_emotion(self, emotion):
+        print(f"There is something going inside of me... it's... I feel {self.process_emotion(emotion)} right now!")
 
     def set_height(self, is_nano):
         self.is_in_nano_form = is_nano
