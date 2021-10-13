@@ -18,11 +18,6 @@ class NanoNii:
 
     def __init__(self):
         print("Nano Nii is now running")
-        self.start()
-
-    def start(self):
-        # Make a new python file, import NanoNii class and handle there commandline input
-        pass
 
     def get_called_cute(self, viewer):
         print(f"Ahh... thanks >.< \nBut... I am not that cute senpai... but thank you {viewer}!\n"
@@ -58,10 +53,14 @@ class NanoNii:
     def fix_audio_issues(self):
         if self.is_in_nano_form is not True:
             self.set_height(True)
-        print("I am now in nano-mode and it's time to fix your audio issues... nya~!\n")
+        print("I am now in nano-mode and it's time to fix your audio issues... nya~!")
         sleep(random.randint(1, 6))
         print("Your Nyandroid NanoNii fixed all your audio issues master! Nyaaa~!")
         self.set_height(False)
+
+    @staticmethod
+    def nyaaa(self):
+        print("!!!~~NYAAA MASTER~~!!!")
 
 
 if __name__ == '__main__':
