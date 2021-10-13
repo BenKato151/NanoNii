@@ -1,8 +1,11 @@
 #!/usr/bin/python
+import random
+from time import sleep
 
 
 class NanoNii:
     age = "21+"
+    species = "Nyandroid"
     visible_size = 137.16
     nano_size = visible_size / (10*9)
     size = visible_size
@@ -18,6 +21,7 @@ class NanoNii:
         self.start()
 
     def start(self):
+        # Make a new python file, import NanoNii class and handle there commandline input
         pass
 
     def get_called_cute(self, viewer):
@@ -41,12 +45,23 @@ class NanoNii:
         self.is_in_nano_form = is_nano
         if self.is_in_nano_form:
             self.size = self.nano_size
+            height_type = "nanometer"
         else:
             self.size = self.visible_size
+            height_type = "centimeter"
+        print(f"My height is now {self.size} {height_type}")
 
     def get_links_to_socials(self):
         for social in self.socials.items():
             print(f"{social[0]}: {social[1]}")
+
+    def fix_audio_issues(self):
+        if self.is_in_nano_form is not True:
+            self.set_height(True)
+        print("I am now in nano-mode and it's time to fix your audio issues... nya~!\n")
+        sleep(random.randint(1, 6))
+        print("Your Nyandroid NanoNii fixed all your audio issues master! Nyaaa~!")
+        self.set_height(False)
 
 
 nanoNii = NanoNii()
