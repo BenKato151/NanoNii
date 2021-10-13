@@ -44,5 +44,9 @@ class NanoNii:
         else:
             self.size = self.visible_size
 
+    def get_links_to_socials(self):
+        for social in self.socials.items():
+            print(f"{social[0]}: {social[1]}")
+
 
 nanoNii = NanoNii()
