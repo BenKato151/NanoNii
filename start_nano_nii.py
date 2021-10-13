@@ -4,6 +4,9 @@ import sys
 from nano_nii import NanoNii
 import argparse
 
+commands_list = "\t- You are cute\n\t- Socials\n\t- Nyaaa\n\t- Emotion\n\t- " \
+                "Fix audio issues\n\t- Set height\n\t- Exit"
+
 
 class CommandHandler:
 
@@ -25,8 +28,36 @@ class CommandHandler:
         self.parser.add_argument("--process-emotion", help="Make NanoNii feel something!")
 
     def default_task(self):
-        # TODO: Create a loop where you can write a command, executes it, repeat
-        print(f"Executing default of {self.nanoNii.name}")
+        print(f"Executing default of {self.nanoNii.name}\n"
+              f"Following commands can be used:")
+        print(commands_list)
+        master_name = input(f"Oh, you are now my master! I am {self.nanoNii.name}. What is your name master? :3\t")
+        # master_name = "BenKato"
+        print(f"Understood, {master_name} is my master! uwu")
+        running = True
+        while running:
+            try:
+                command = input("Write a command\n")
+                if command.lower() == "socials":
+                    self.nanoNii.get_links_to_socials()
+                if command.lower() == "nyaaa":
+                    self.nanoNii.nyaaa()
+                if command.lower() == "emotion":
+                    emotion = input("What do you want me to feel?\t")
+                    self.nanoNii.get_emotion(emotion)
+                if command.lower() == "you are cute":
+                    self.nanoNii.get_called_cute(master_name)
+                if command.lower() == "set height":
+                    switch_nano_nii = input("Do you want me switch into nano-mode? True/False:\n\t")
+                    self.nanoNii.set_height(switch_nano_nii)
+                if command.lower() == "Fix audio issues":
+                    self.nanoNii.fix_audio_issues()
+                if command.lower() == "exit":
+                    print("Exit")
+                    break
+            except KeyboardInterrupt:
+                print("\nExit")
+                running = False
 
     def create_tasks(self):
         if self.args.fix_audio_issues:
