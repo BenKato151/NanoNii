@@ -13,6 +13,7 @@ class CommandHandler:
         self.add_args()
         self.args = self.parser.parse_args()
 
+    # Adds terminal arguments, creates tasks given by functions of NanoNii class
     def add_args(self):
         self.parser.add_argument("--fix-audio-issues", help="NanoNii turning into nano-mode and fixing issues",
                                  action='store_true')
@@ -24,6 +25,7 @@ class CommandHandler:
         self.parser.add_argument("--process-emotion", help="Make NanoNii feel something!")
 
     def default_task(self):
+        # TODO: Create a loop where you can write a command, executes it, repeat
         print(f"Executing default of {self.nanoNii.name}")
 
     def create_tasks(self):
@@ -39,7 +41,7 @@ class CommandHandler:
             self.nanoNii.get_emotion(self.args.process_emotion)
         if self.args.set_height:
             self.nanoNii.set_height(self.args.set_height)
-
+        # If no args are given, then it will run the default task, which should be interactive
         if len(sys.argv) == 1:
             self.default_task()
 
