@@ -42,14 +42,14 @@ class CommandHandler:
                 command = input("Write a command\n")
                 if command.lower() == "socials":
                     self.nanoNii.get_links_to_socials()
-                if command.lower() == "nyaaa":
+                elif command.lower() == "nyaaa":
                     self.nanoNii.nyaaa()
-                if command.lower() == "emotion":
+                elif command.lower() == "emotion":
                     emotion = input("What do you want me to feel?\t")
                     self.nanoNii.get_emotion(emotion)
-                if command.lower() == "you are cute":
+                elif command.lower() == "you are cute":
                     self.nanoNii.get_called_cute(master_name)
-                if command.lower() == "set height":
+                elif command.lower() == "set height":
                     switch_nano_nii = input(f"In which form do you want me? [human,nano]:\n\t")
                     if switch_nano_nii.lower() == "human":
                         self.nanoNii.set_height(self.nanoNii.Forms.HUMAN)
@@ -57,11 +57,13 @@ class CommandHandler:
                         self.nanoNii.set_height(self.nanoNii.Forms.NANO)
                     else:
                         print("Wrong mode")
-                if command.lower() == "fix audio issues":
+                elif command.lower() == "fix audio issues":
                     self.nanoNii.fix_audio_issues()
-                if command.lower() == "exit":
+                elif command.lower() == "exit":
                     print("Exit")
                     break
+                else:
+                    print("no valid command")
             except KeyboardInterrupt:
                 print("\nExit")
                 running = False
