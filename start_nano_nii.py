@@ -4,8 +4,8 @@ import sys
 from nano_nii import NanoNii
 import argparse
 
-commands_list = "\t- You are cute\n\t- Socials\n\t- Nyaaa\n\t- Emotion\n\t- " \
-                "Fix audio issues\n\t- Set height\n\t- Exit"
+commands_list = "Following commands can be used:\n\t- You are cute\n\t- Socials\n\t- Nyaaa\n\t- Emotion\n\t- " \
+                "Fix audio issues\n\t- Set height\n\t- Help\n\t- Exit"
 
 
 class CommandHandler:
@@ -30,8 +30,7 @@ class CommandHandler:
     # region Default task - command Loop
 
     def default_task(self):
-        print(f"Executing default of {self.nanoNii.name}\n"
-              f"Following commands can be used:")
+        print(f"Executing default of {self.nanoNii.name}")
         print(commands_list)
         master_name = input(f"Oh, you are now my master! I am {self.nanoNii.name}. What is your name master? :3\t")
         # master_name = "BenKato"
@@ -59,6 +58,8 @@ class CommandHandler:
                         print("Wrong mode")
                 elif command.lower() == "fix audio issues":
                     self.nanoNii.fix_audio_issues()
+                elif command.lower() == "help":
+                    print(commands_list)
                 elif command.lower() == "exit":
                     print("Exit")
                     break
