@@ -1,8 +1,7 @@
 #!/usr/bin/python
 import sys
-
-from nano_nii import NanoNii
 import argparse
+from nano_nii import NanoNii
 
 commands_list = "Following commands can be used:\n\t- You are cute\n\t- Socials\n\t- Nyaaa\n\t- Emotion\n\t- " \
                 "Fix audio issues\n\t- Set height\n\t- Help\n\t- Exit"
@@ -68,6 +67,7 @@ class CommandHandler:
             except KeyboardInterrupt:
                 print("\nExit")
                 running = False
+
     # endregion
 
     def create_tasks(self):

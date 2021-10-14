@@ -58,9 +58,11 @@ class NanoNii:
         if mode == self.Forms.NANO:
             self.size = self.nano_size
             self.height_type = "nanometer"
+            self.current_mode = self.Forms.NANO
         elif mode == self.Forms.HUMAN:
             self.size = self.visible_size
             self.height_type = "centimeter"
+            self.current_mode = self.Forms.HUMAN
         else:
             print("wrong form")
             return
