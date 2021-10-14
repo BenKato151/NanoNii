@@ -1,17 +1,23 @@
 #!/usr/bin/python
 import random
 from time import sleep
+from enum import Enum
 
 
 class NanoNii:
     # Description of Nano Nii
+
+    class Forms(Enum):
+        NANO = 1
+        HUMAN = 2
     name = "Nano Nii"
     age = "21+"
     species = "Nyandroid"
     visible_size = 137.16
     nano_size = visible_size / (10*9)  # I think this is the right convert from centimeters to nanometers? xD
     size = visible_size  # default is human-mode (size)
-    is_in_nano_form = False
+    height_type = "centimeter"
+    current_mode = Forms.HUMAN
     current_emotion = None
     lore = "<WIP>"  # TODO: Write the whole lore down when everything got published
     socials = {'Twitch': 'https://www.twitch.tv/nanoniittv', 'Youtube': 'https://www.youtube.com/c/NanoNiitv',
@@ -45,17 +51,20 @@ class NanoNii:
     def get_emotion(self, emotion):
         print(f"There is something going inside of me... it's... I feel {self.process_emotion(emotion)} right now!")
 
-    def set_height(self, is_nano):
+    def set_height(self, mode):
         # assign the param (bool) to the class field and if NanoNii is in Nano-mode, the size is assigned to it's value
         # and the right measurement type
-        self.is_in_nano_form = is_nano
-        if self.is_in_nano_form:
+
+        if mode == self.Forms.NANO:
             self.size = self.nano_size
-            height_type = "nanometer"
-        else:
+            self.height_type = "nanometer"
+        elif mode == self.Forms.HUMAN:
             self.size = self.visible_size
-            height_type = "centimeter"
-        print(f"My height is now {self.size} {height_type}")
+            self.height_type = "centimeter"
+        else:
+            print("wrong form")
+            return
+        print(f"My height is now {self.size} {self.height_type}")
 
     def get_links_to_socials(self):
         for social in self.socials.items():
@@ -65,12 +74,12 @@ class NanoNii:
         # This is lore stuff:
         # NanoNii can shrink into nano-size and can fix (preferred audio) issues
         # After NanoNii fixed everything, it will go to human-form
-        if self.is_in_nano_form is not True:
-            self.set_height(True)
-        print("I am now in nano-mode and it's time to fix your audio issues... nya~!")
+        if self.current_mode is not self.Forms.NANO:
+            self.set_height(self.Forms.NANO)
+        print(f"I am now in {self.current_mode.name} and it's time to fix your audio issues... nya~!")
         sleep(random.randint(1, 6))
         print("Your Nyandroid NanoNii fixed all your audio issues master! Nyaaa~!")
-        self.set_height(False)
+        self.set_height(self.Forms.HUMAN)
 
     @staticmethod
     def nyaaa():
