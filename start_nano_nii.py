@@ -57,7 +57,7 @@ class CommandHandler:
                         self.nanoNii.set_height(False)
                     else:
                         print("Only Yes or No")
-                if command.lower() == "Fix audio issues":
+                if command.lower() == "fix audio issues":
                     self.nanoNii.fix_audio_issues()
                 if command.lower() == "exit":
                     print("Exit")
