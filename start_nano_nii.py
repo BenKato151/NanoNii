@@ -50,8 +50,13 @@ class CommandHandler:
                 if command.lower() == "you are cute":
                     self.nanoNii.get_called_cute(master_name)
                 if command.lower() == "set height":
-                    switch_nano_nii = input("Do you want me switch into nano-mode? True/False:\n\t")
-                    self.nanoNii.set_height(switch_nano_nii)
+                    switch_nano_nii = input("Do you want me switch into nano-mode? [Yes/No]:\n\t")
+                    if switch_nano_nii.lower() == "yes":
+                        self.nanoNii.set_height(True)
+                    elif switch_nano_nii.lower() == "no":
+                        self.nanoNii.set_height(False)
+                    else:
+                        print("Only Yes or No")
                 if command.lower() == "Fix audio issues":
                     self.nanoNii.fix_audio_issues()
                 if command.lower() == "exit":
