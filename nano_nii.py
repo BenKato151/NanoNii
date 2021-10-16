@@ -94,6 +94,8 @@ class NanoNii:
         self.is_live_on_twitch = checkUser(user_id)
         if self.is_live_on_twitch:
             return f"NanoNii is live on: {twitch_link}"
+        else:
+            return "NanoNii is not live! :("
 
     # TODO: Add more NanoNii actions
     # endregion
