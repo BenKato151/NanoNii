@@ -1,0 +1,4 @@
+venv
+/.env
+ideas
+requirements.txt.bak
