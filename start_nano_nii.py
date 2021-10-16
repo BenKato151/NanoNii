@@ -1,8 +1,9 @@
-#!/usr/bin/python
+#!venv/bin/python
 import sys
 import argparse
 from nano_nii import NanoNii
-
+from dotenv import dotenv_values
+config = dotenv_values(".env")
 commands_list = "Following commands can be used:\n\t- You are cute\n\t- Socials\n\t- Nyaaa\n\t- Emotion\n\t- " \
                 "Fix audio issues\n\t- Set height\n\t- Help\n\t- Exit"
 
@@ -89,5 +90,8 @@ class CommandHandler:
 
 
 if __name__ == '__main__':
-    commands = CommandHandler()
-    commands.create_tasks()
+    try:
+        commands = CommandHandler()
+        commands.create_tasks()
+    except KeyboardInterrupt:
+        print("\nExit")
