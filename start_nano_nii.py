@@ -5,7 +5,7 @@ from nano_nii import NanoNii
 from dotenv import dotenv_values
 config = dotenv_values(".env")
 commands_list = "Following commands can be used:\n\t- You are cute\n\t- Socials\n\t- Nyaaa\n\t- Emotion\n\t- " \
-                "Fix audio issues\n\t- Set height\n\t- Help\n\t- Exit"
+                "Fix audio issues\n\t- Set height\n\t- Help\n\t- live status\n\t- Exit"
 
 
 class CommandHandler:
@@ -26,6 +26,7 @@ class CommandHandler:
         self.parser.add_argument("--call-me-cute", help="Call NanoNii cute")
         self.parser.add_argument("--nyaaa", help="Make NanoNii Nyaaa for you uwu!", action="store_true")
         self.parser.add_argument("--process-emotion", help="Make NanoNii feel something!")
+        self.parser.add_argument("--live-status", help="Check if NanoNii is live on Twitch", action="store_true")
 
     # region Default task - command Loop
 
@@ -56,6 +57,8 @@ class CommandHandler:
                         self.nanoNii.set_height(self.nanoNii.Forms.NANO)
                     else:
                         print("Wrong mode")
+                elif command.lower() == "live status":
+                    print(self.nanoNii.get_live_status_twitch(config.get('TWITCH_LINK'), "nanoniittv"))
                 elif command.lower() == "fix audio issues":
                     self.nanoNii.fix_audio_issues()
                 elif command.lower() == "help":
@@ -84,6 +87,8 @@ class CommandHandler:
             self.nanoNii.get_emotion(self.args.process_emotion)
         if self.args.set_height:
             self.nanoNii.set_height(self.args.set_height)
+        if self.args.live_status:
+            print(self.nanoNii.get_live_status_twitch(config.get('TWITCH_LINK'), "nanoniittv"))
         # If no args are given, then it will run the default task, which should be interactive
         if len(sys.argv) == 1:
             self.default_task()

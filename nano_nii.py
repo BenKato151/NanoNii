@@ -2,6 +2,7 @@
 import random
 from time import sleep
 from enum import Enum
+from twitch_api import checkUser
 
 
 class NanoNii:
@@ -18,6 +19,7 @@ class NanoNii:
     size = visible_size  # default is human-mode (size)
     height_type = "centimeter"
     current_mode = Forms.HUMAN
+    is_live_on_twitch = False
     current_emotion = None
     lore = "<WIP>"  # TODO: Write the whole lore down when everything got published
     socials = {'Twitch': 'https://www.twitch.tv/nanoniittv', 'Youtube': 'https://www.youtube.com/c/NanoNiitv',
@@ -87,6 +89,12 @@ class NanoNii:
     def nyaaa():
         # Every Nyandroid should nyaaa every once in a while :3
         print("!!!~~NYAAA MASTER~~!!!")
+
+    def get_live_status_twitch(self, twitch_link, user_id):
+        self.is_live_on_twitch = checkUser(user_id)
+        if self.is_live_on_twitch:
+            return f"NanoNii is live on: {twitch_link}"
+
     # TODO: Add more NanoNii actions
     # endregion
 
