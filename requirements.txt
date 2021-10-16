@@ -5,3 +5,4 @@ python-dotenv==0.19.1
 requests==2.26.0
 urllib3==1.26.7
 python-dotenv==0.19.1
+youtube-dl==2021.6.6
